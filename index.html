@@ -110,6 +110,73 @@
   display:block
 }
 
+/* =========================
+   Mobile responsiveness
+   ========================= */
+
+/* Small phones (max 480px) */
+@media (max-width: 480px) {
+
+  body {
+    padding: 10px;
+  }
+
+  #header {
+    font-size: 30px;
+    top: 2%;
+    padding: 0 10px;
+  }
+
+  .scene {
+    margin-top: 20px;
+  }
+
+  .envelope {
+    width: 300px;
+    height: 200px;
+    top: 40px;
+  }
+
+  .letter {
+    padding: 12px;
+  }
+
+  .letter h3 {
+    font-size: 14px;
+  }
+
+  .letter p {
+    font-size: 11.5px;
+    line-height: 1.4;
+  }
+
+  .envelope.open .letter {
+    transform: translateY(-70%);
+  }
+}
+
+/* Medium phones / small tablets (481px–768px) */
+@media (max-width: 768px) {
+
+  #header {
+    font-size: 30px;
+  }
+
+  .envelope {
+    width: 350px;
+    height: 240px;
+    top: 50px;
+  }
+
+  .letter p {
+    font-size: 12.5px;
+  }
+
+  .envelope.open .letter {
+    transform: translateY(-75%);
+    height:120%;
+  }
+}
 
   </style>
 </head>
@@ -132,7 +199,7 @@
   </div>
 </div>
 
-<audio id="music" src="Daniel Caesar - Always (Official Audio).mp3" preload="auto">
+<audio id="music" src="Daniel Caesar - Always (Official Audio).mp3">
 
 </audio>
 
