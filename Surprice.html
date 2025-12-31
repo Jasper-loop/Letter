@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sliding Letter Envelope</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: radial-gradient(#ffe6ec, #f8bbd0);
+  font-family: Georgia, serif;
+}
+#header{
+    position:absolute;
+    font-size:50px;
+    top:3%;
+    text-align: center;
+}
+
+/* Scene */
+.scene {
+  perspective: 1000px;
+}
+
+.scene {
+  perspective: 1000px;
+  margin-top: 50px; /* moves the envelope down */
+}
+
+.envelope {
+  position: relative;
+  width: 420px;   /* wider envelope */
+  height: 280px;  /* taller envelope */
+  cursor: pointer;
+  top:70px;
+}
+
+/* Back */
+.back {
+  position: absolute;
+  inset: 0;
+  background: #fdfdfd;
+  border-radius: 8px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  z-index: 1;
+}
+
+/* Letter */
+.letter {
+  position: absolute;
+  width: 92%;       /* slightly wider */
+  height: 95%;      /* slightly taller */
+  background: #c4c4c3;
+  top: 5%;
+  left: 4%;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  transition: transform 0.8s ease;
+  z-index: 2;
+  p{
+    font-size:13.5px;
+    display:none;
+  }
+}
+
+/* Front */
+.front {
+  position: absolute;
+  inset: 0;
+  background: #fafafa;
+  clip-path: polygon(
+    0 0,
+    50% 45%,   /* higher peak */
+    100% 0,
+    100% 100%,
+    0 100%
+  );
+  border-radius: 8px;
+  z-index: 3;
+}
+
+/* Flap */
+.flap {
+  position: absolute;
+  inset: 0;
+  background: #f5f5f5;
+  clip-path: polygon(0 0, 50% 55%, 100% 0);
+  transform-origin: top;
+  transition: transform 0.8s ease;
+  z-index: 4;
+}
+
+/* Open animation */
+.envelope.open .flap {
+  transform: rotateX(180deg);
+}
+
+.envelope.open .letter {
+  transform: translateY(-80%); /* slide slightly less for tall letter */
+  z-index: 100;
+}
+.envelope.open .letter p {
+  display:block
+}
+
+
+  </style>
+</head>
+<body>
+    <h1 id="header">Hi po Krizia touch this envelope</h1>
+
+<div class="scene">
+  <div class="envelope" id="envelope">
+    <div class="back"></div>
+
+    <div class="letter">
+      <h3>Hi K</h3>
+      <p>
+        Hi ulit kriz alam ko tatlo na tong "Hi" HHAHAH pero this letter is for greetings lang sana ng Happy Newyear kaso sinabay kona yung dapat ipang first move ko, kung baga eto yung pang hokage moves ko na malupitan HAHAHA. Kidding aside this message also involves my intentions towards to you alam kong corny pero wala eh this is the right thing to do when courting a girl like you. In the first place alam mo namn na crush kita dahil may convo nmn na tayo tapos na re-reciorocate mo namn yung feelings ko kaya alam kong may chance talaga ako HAHAHA. Oo crush talaga kita tuldok. Yung lang thankyuo.
+      </p>
+    </div>
+
+    <div class="front"></div>
+    <div class="flap"></div>
+  </div>
+</div>
+
+<audio id="music" src="Daniel Caesar - Always (Official Audio).mp3" preload="auto">
+
+</audio>
+
+<script src="script.js"></script>
+</body>
+</html>
